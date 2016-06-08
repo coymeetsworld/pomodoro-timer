@@ -34,28 +34,6 @@ $(document).ready(function() {
   var session_bgcolor = "red";
   var break_bgcolor = "#7FFF00";
 
-  function drawTimer(percent, timeLeft) {
-    $('div.timer').html('<div id="time_left"></div><div id="slice"'+(percent > 50?' class="gt50"':'')+'><div class="pie"></div>'+(percent > 50?'<div class="pie fill"></div>':'')+'</div>');
-
-    /* Have to set it in this interval function since the div class keeps getting readded to DOM */
-    if (mode == 'Session') {
-      $(".timer #slice .pie").css("background", session_bgcolor);
-    } else {
-      $(".timer #slice .pie").css("background", break_bgcolor);
-    }
-
-    var deg = 360/100*percent;
-
-    $('#slice .pie').css({
-      '-moz-transform':'rotate('+deg+'deg)',
-      '-webkit-transform':'rotate('+deg+'deg)',
-      '-o-transform':'rotate('+deg+'deg)',
-      'transform':'rotate('+deg+'deg)'
-    })
-
-    $('#time_left').html(timeLeft);
-  }
-
 
 
   /* Sets up a timer to run every second. */
@@ -65,7 +43,6 @@ $(document).ready(function() {
 
     var start = Date.now();
     var timeLeft, minutes, seconds;
-    var percent;
 
     /* Function used by startTime to run every second. Counts down the timer. */
     function timer() {
@@ -79,42 +56,23 @@ $(document).ready(function() {
 
       if (timeLeft <= 0) {
 
-        drawTimer(100, formatTimeLeft(0));
-
         if (mode == "Session") {
           mode = "Break!";
           durationInSeconds = breakDuration;
-          $(".timer #slice .pie").css("background", break_bgcolor); /* For when it hits 0 */
         } else {
           mode = "Session";
           durationInSeconds = pomodoroDuration;
-          $(".timer #slice .pie").css("background", session_bgcolor); /* For when it hits 0 */
         }
         $("#mode").html("<p>" + mode + "</p>");
         start = Date.now();
         start.setSeconds(start.getSeconds() + 2);
-      } else {
-
-        if (mode == "Session") {
-          percent = 100 - ((timeLeft/pomodoroDuration) * 100);
-        } else if (mode == "Break!") {
-          percent = 100 - ((timeLeft/breakDuration) * 100);
-        }
-        drawTimer(percent, formatTimeLeft(timeLeft));
       }
 
     };
 
     timer(); /* Run this once to avoid 1 second delay in setInterval */
 
-    /* Draw pie graph once to avoid 1 second delay in setInterval */
-    if (mode == "Session") {
-      percent = 100 - ((timeLeft/pomodoroDuration) * 100);
-    } else if (mode == "Break!") {
-      percent = 100 - ((timeLeft/breakDuration) * 100);
-    }
 
-    drawTimer(percent, formatTimeLeft(timeLeft));
     myInterval = setInterval(timer, 1000);
   }
 
@@ -122,6 +80,7 @@ $(document).ready(function() {
   /* Depending on the current state, will either start or pause the session. If started, buttons to change the pomodoro/break lengths will be disabled. The opposite is true if the button is pressed to pause the session. */
   $("#startTimerButton").click(function() {
     if (mode == "Paused") {
+      $("#row_menu").slideUp(600);
       mode = prev_mode;
       $("#mode").html("<p>Mode: " + mode + "</p>");
       var secondsLeft = convertTimeToSeconds($("#time_left").text());
@@ -143,6 +102,8 @@ $(document).ready(function() {
       $("#incrementBreakLength").prop("disabled",true);
       $("#decrementBreakLength").prop("disabled",true);
     } else {
+      $("#row_menu").slideDown(600);
+
       prev_mode = mode;
       mode = "Paused";
       $("#mode").html("<p>Mode: " + mode + "</p>");
@@ -164,8 +125,6 @@ $(document).ready(function() {
     if (prev_mode == "Break!") {
       prev_mode = "Session";
     }
-    drawTimer(0, formatTimeLeft(pomodoroDuration));
-
     $("#pLength").html("<p>" + pomodoroDurationFormatted + "</p>");
     $("#time_left").html("<p>" + pomodoroDurationFormatted + "</p>");
   });
@@ -178,7 +137,6 @@ $(document).ready(function() {
       if (prev_mode == "Break!") {
         prev_mode = "Session";
       }
-      drawTimer(0, formatTimeLeft(pomodoroDuration));
       pomodoroDuration -= 60;
       var pomodoroDurationFormatted = formatTimeLeft(pomodoroDuration);
       $("#pLength").html("<p>" + pomodoroDurationFormatted + "</p>");
@@ -193,7 +151,6 @@ $(document).ready(function() {
     if (prev_mode == "Break!") {
       prev_mode = "Session";
     }
-    drawTimer(0, formatTimeLeft(pomodoroDuration));
     breakDuration += 60;
     var breakDurationFormatted = formatTimeLeft(breakDuration);
     $("#bLength").html("<p>" + breakDurationFormatted + "</p>");
@@ -207,8 +164,6 @@ $(document).ready(function() {
       if (prev_mode == "Break!") {
         prev_mode = "Session";
       }
-      drawTimer(0, formatTimeLeft(pomodoroDuration));
-
       breakDuration -= 60;
       var breakDurationFormatted = formatTimeLeft(breakDuration);
       $("#bLength").html("<p>" + breakDurationFormatted + "</p>");

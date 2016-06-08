@@ -12,30 +12,26 @@
       <div class="row" id="row_title">
         <h1>Pomodoro Clock</h1>
       </div>
-      <div class="row" id="row_mode">
-        <span id="mode"></span>
+      <div class="row">
+        <button type="button" class="btn btn-sm btn-default" id="startTimerButton">Start</button>
       </div>
       <div class="row" id="row_clock">
-        <div class="col-md-4">
-          <button type="button" class="btn btn-sm btn-default" id="incrementPomodoroLength">Increment Pomodoro</button>
-          <span id="pLength"></span>
-          <button type="button" class="btn btn-sm btn-default" id="decrementPomodoroLength">Decrement Pomodoro</button>
-        </div>
-        <div class="col-md-4">
-          <button type="button" class="btn btn-sm btn-default" id="startTimerButton">Start</button>
-          <span id="time"></span>
-          <div class="timer">
-            <div id="time_left"></div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <button type="button" class="btn btn-sm btn-default" id="incrementBreakLength">Increment Break</button>
-          <span id="bLength"></span>
-          <button type="button" class="btn btn-sm btn-default" id="decrementBreakLength">Decrement Break</button>
+          <div id="time_left"></div>
+      </div>
+      <div class="row" id="row_mode">
+        <div class="col-md-12">
+          <span id="mode"></span>
         </div>
       </div>
+      <div class="row" id="row_menu">
+        <img id="incrementPomodoroLength" src="images/arrow/02/up-arrow.svg"/>
+        <span id="pLength"></span>
+        <img id="decrementPomodoroLength" src="images/arrow/02/down-arrow.svg"/>
+        <img id="incrementBreakLength" src="images/arrow/02/up-arrow.svg"/>
+        <span id="bLength"></span>
+        <img id="decrementBreakLength" src="images/arrow/02/down-arrow.svg"/>
+      </div>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-      <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
       <script type="text/javascript" src="pomodoro.js"></script>
   </body>
 </html>
