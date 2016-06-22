@@ -1,0 +1,119 @@
+
+
+body {
+  background-color: purple;
+  background-image: url("../images/grass-1197644_1920.jpg");
+  color: white;
+}
+
+h1 {
+  margin-left: 0.5em;
+}
+
+/* Clock */
+#row_clock {
+  margin-top: 7em;
+  padding: 0;
+}
+
+#time_left p {
+  text-align: center;
+  font-size: 15em;
+  margin: 0;
+}
+
+
+
+/* End clock */
+#row_mode {
+  margin-top: 1em;
+  margin-left: 0.5em;
+  font-size: 2em;
+}
+#mode p {
+  display: inline;
+}
+
+#row_button {
+  margin-top: 0.5em;
+  margin-left: 1em;
+}
+
+#row_button button {
+}
+
+
+/* Bottom bar */
+#row_menu {
+  padding-left: 20px;
+  color: green;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0, 0.7);
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+#pLength p {
+  display: inline;
+  font-size: 170%;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#bLength p {
+  display: inline;
+  font-size: 170%;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#incrementPomodoroLength {
+  width: 3%;
+}
+#incrementPomodoroLength:hover {
+  cursor: pointer;
+}
+
+#decrementPomodoroLength {
+  width: 3%;
+  margin-right: 25px;
+}
+
+#decrementPomodoroLength:hover {
+  cursor: pointer;
+}
+
+#incrementBreakLength {
+  width: 3%;
+}
+#incrementBreakLength:hover {
+  cursor: pointer;
+}
+
+#decrementBreakLength {
+  width: 3%;
+}
+
+#decrementBreakLength:hover {
+  cursor: pointer;
+}
