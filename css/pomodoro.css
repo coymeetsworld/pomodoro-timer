@@ -42,6 +42,21 @@ h1 {
 #row_button button {
 }
 
+#row_pomodoros {
+  position: fixed;
+  bottom: 50px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.pomodoro_complete {
+  width: 80px;
+}
+.pomodoro_pending {
+  width: 80px;
+  opacity: 0.5;
+}
+
 
 /* Bottom bar */
 #row_menu {
@@ -51,25 +66,6 @@ h1 {
   bottom: 0;
   width: 100%;
   background: rgba(0,0,0, 0.7);
-}
-
-.tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-    visibility: visible;
 }
 
 #pLength p {
@@ -86,9 +82,16 @@ h1 {
   padding-left: 10px;
   padding-right: 10px;
 }
-
+#numPomodoros p {
+  display: inline;
+  font-size: 170%;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 #incrementPomodoroLength {
   width: 3%;
+  padding-bottom: 5px;
 }
 #incrementPomodoroLength:hover {
   cursor: pointer;
@@ -97,6 +100,7 @@ h1 {
 #decrementPomodoroLength {
   width: 3%;
   margin-right: 25px;
+  padding-bottom: 5px;
 }
 
 #decrementPomodoroLength:hover {
@@ -105,6 +109,7 @@ h1 {
 
 #incrementBreakLength {
   width: 3%;
+  padding-bottom: 5px;
 }
 #incrementBreakLength:hover {
   cursor: pointer;
@@ -112,8 +117,25 @@ h1 {
 
 #decrementBreakLength {
   width: 3%;
+  margin-right: 25px;
+  padding-bottom: 5px;
 }
 
 #decrementBreakLength:hover {
+  cursor: pointer;
+}
+
+#incrementPomodoros {
+  width: 3%;
+  padding-bottom: 5px;
+}
+#incrementPomodoros:hover {
+  cursor: pointer;
+}
+#decrementPomodoros {
+  width: 3%;
+  padding-bottom: 5px;
+}
+#decrementPomodoros:hover {
   cursor: pointer;
 }

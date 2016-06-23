@@ -26,6 +26,9 @@ $(document).ready(function() {
   var breakDurationFormatted = formatTimeLeft(breakDuration);
   $("#bLength").html("<p>" + breakDurationFormatted + "</p>");
 
+  var numPomodoros = 1;
+  $("#numPomodoros").html("<p>" + numPomodoros + "</p>");
+
   var mode = "Paused";
   var prev_mode = "Session"; /* Used to keep track of what mode it is prior to pausing (i.e. when resumed, checks if its on Break or Session). By default start as Session. */
   $("#mode").html("<p>Mode: " + mode + "</p>");
@@ -81,6 +84,8 @@ $(document).ready(function() {
   $("#startTimerButton").click(function() {
     if (mode == "Paused") {
       $("#row_menu").slideUp(600);
+      $("#row_pomodoros").animate({bottom: '0px'}, 600);
+
       mode = prev_mode;
       $("#mode").html("<p>Mode: " + mode + "</p>");
       var secondsLeft = convertTimeToSeconds($("#time_left").text());
@@ -103,7 +108,7 @@ $(document).ready(function() {
       $("#decrementBreakLength").prop("disabled",true);
     } else {
       $("#row_menu").slideDown(600);
-
+      $("#row_pomodoros").animate({bottom: '50px'}, 600);
       prev_mode = mode;
       mode = "Paused";
       $("#mode").html("<p>Mode: " + mode + "</p>");
@@ -170,4 +175,26 @@ $(document).ready(function() {
     }
   });
 
+
+
+
+  /* When pressed, increments the number of pomodoros by 1. */
+  $("#incrementPomodoros").click(function() {
+
+    if (numPomodoros < 8) {
+      //madeup number
+      numPomodoros++;
+      $("#row_pomodoros").append("<img class=\"pomodoro_pending\" src=\"images/tomato1.svg\"/>");
+      $("#numPomodoros").html("<p>" + numPomodoros + "</p>");
+    }
+  });
+
+  /* When pressed, decrements the number of pomodoros by 1. Cannot have less than one pomodoro. */
+  $("#decrementPomodoros").click(function() {
+    if (numPomodoros > 1) {
+      numPomodoros--;
+      $(".pomodoro_pending").first().remove();
+      $("#numPomodoros").html("<p>" + numPomodoros + "</p>");
+    }
+  });
 });

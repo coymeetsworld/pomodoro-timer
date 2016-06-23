@@ -1,8 +1,9 @@
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="pomodoro.css">
+    <link rel="stylesheet" type="text/css" href="css/pomodoro.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lobster" >
     <title>Pomadoro Clock</title>
@@ -12,26 +13,36 @@
       <div class="row" id="row_title">
         <h1>Pomodoro Clock</h1>
       </div>
-      <div class="row">
-        <button type="button" class="btn btn-sm btn-default" id="startTimerButton">Start</button>
-      </div>
       <div class="row" id="row_clock">
           <div id="time_left"></div>
       </div>
       <div class="row" id="row_mode">
-        <div class="col-md-12">
-          <span id="mode"></span>
-        </div>
+        <span id="mode"></span>
+      </div>
+      <div class="row" id="row_button">
+        <button type="button" class="btn btn-sm btn-default" id="startTimerButton">Start</button>
+      </div>
+      <div class="row" id="row_pomodoros">
+        <img class="pomodoro_pending" src="images/tomato1.svg"/>
       </div>
       <div class="row" id="row_menu">
-        <img id="incrementPomodoroLength" src="images/arrow/02/up-arrow.svg"/>
+        <img id="incrementPomodoroLength" src="images/up-arrow.svg"/>
         <span id="pLength"></span>
-        <img id="decrementPomodoroLength" src="images/arrow/02/down-arrow.svg"/>
-        <img id="incrementBreakLength" src="images/arrow/02/up-arrow.svg"/>
+        <img id="decrementPomodoroLength" src="images/down-arrow.svg"/>
+        <img id="incrementBreakLength" src="images/up-arrow.svg"/>
         <span id="bLength"></span>
-        <img id="decrementBreakLength" src="images/arrow/02/down-arrow.svg"/>
+        <img id="decrementBreakLength" src="images/down-arrow.svg"/>
+        <img id="incrementPomodoros" src="images/up-arrow.svg"/>
+        <span id="numPomodoros"></span>
+        <img id="decrementPomodoros" src="images/down-arrow.svg"/>
       </div>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
       <script type="text/javascript" src="pomodoro.js"></script>
   </body>
 </html>
+<!--
+The ideal work-to-break ratio was 52 minutes of work, followed by 17 minutes of rest.
+http://www.forbes.com/sites/travisbradberry/2016/06/07/why-the-8-hour-workday-doesnt-work/#8b1816f79812
+-->
+<!-- Credit for up and down arrows: <div>Icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+-->
