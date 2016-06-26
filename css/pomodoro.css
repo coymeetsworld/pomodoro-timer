@@ -1,13 +1,15 @@
 
 
 body {
-  background-color: purple;
+  background-size: cover;
   background-image: url("../images/grass-1197644_1920.jpg");
   color: white;
 }
 
 h1 {
   margin-left: 0.5em;
+  font-family: "Merienda", Arial, sans-serif;
+  font-size: 4.0em;
 }
 
 /* Clock */
@@ -23,12 +25,12 @@ h1 {
 }
 
 
-
 /* End clock */
 #row_mode {
   margin-top: 1em;
   margin-left: 0.5em;
   font-size: 2em;
+  font-family: "Abel";
 }
 #mode p {
   display: inline;
@@ -61,7 +63,6 @@ h1 {
 /* Bottom bar */
 #row_menu {
   padding-left: 20px;
-  color: green;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -138,4 +139,11 @@ h1 {
 }
 #decrementPomodoros:hover {
   cursor: pointer;
+}
+
+#about {
+  float: right;
+  margin-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
