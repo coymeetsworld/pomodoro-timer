@@ -29,7 +29,7 @@ body {
 #row_mode {
   margin-top: 1em;
   margin-left: 0.5em;
-  font-size: 2em;
+  font-size: 2.4em;
   font-family: "Abel";
 }
 #mode p {
@@ -153,6 +153,40 @@ body {
   margin-right: 15px;
 }
 
+#about a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+
 .modal-body .row {
 	margin: auto;
+}
+
+#startTimerButton {
+  background: #e02121;
+  background-image: -webkit-linear-gradient(top, #e02121, #8f0303);
+  background-image: -moz-linear-gradient(top, #e02121, #8f0303);
+  background-image: -ms-linear-gradient(top, #e02121, #8f0303);
+  background-image: -o-linear-gradient(top, #e02121, #8f0303);
+  background-image: linear-gradient(to bottom, #e02121, #8f0303);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 2px 25px 2px 25px;
+  text-decoration: none;
+  border: 0;
+}
+
+#startTimerButton:hover {
+  background: #fc0a0a;
+  background-image: -webkit-linear-gradient(top, #fc0a0a, #bf2222);
+  background-image: -moz-linear-gradient(top, #fc0a0a, #bf2222);
+  background-image: -ms-linear-gradient(top, #fc0a0a, #bf2222);
+  background-image: -o-linear-gradient(top, #fc0a0a, #bf2222);
+  background-image: linear-gradient(to bottom, #fc0a0a, #bf2222);
+  text-decoration: none;
 }
