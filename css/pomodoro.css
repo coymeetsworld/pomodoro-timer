@@ -1,15 +1,14 @@
 
 
 body {
-  background-size: cover;
+  background-color: cover;
   background-image: url("../images/grass-1197644_1920.jpg");
   color: white;
 }
 
-h1 {
+#row_title h1 {
   margin-left: 0.5em;
-  font-family: "Merienda", Arial, sans-serif;
-  font-size: 4.0em;
+  font-family: "Merienda";
 }
 
 /* Clock */
@@ -23,6 +22,7 @@ h1 {
   font-size: 15em;
   margin: 0;
 }
+
 
 
 /* End clock */
@@ -63,6 +63,7 @@ h1 {
 /* Bottom bar */
 #row_menu {
   padding-left: 20px;
+  color: green;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -141,9 +142,17 @@ h1 {
   cursor: pointer;
 }
 
+#myModalAbout {
+  color: black;
+}
+
 #about {
   float: right;
-  margin-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  color: white;
+  margin-top: 8px;
+  margin-right: 15px;
+}
+
+.modal-body .row {
+	margin: auto;
 }
