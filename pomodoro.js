@@ -206,7 +206,16 @@ $(document).ready(function() {
       $("#decrementPomodoroLength").prop("disabled",true);
       $("#incrementBreakLength").prop("disabled",true);
       $("#decrementBreakLength").prop("disabled",true);
-    } else {
+    } else if (mode == "Completed") {
+      /* Starting over */
+      clearCompletedPomodoros();
+      $("#row_menu").slideUp(600);
+      $("#row_pomodoros").animate({bottom: '0px'}, 600);
+      showCurrentPomodoroStatus();
+      mode = "Session";
+      $("#mode").html("<p>Mode: " + mode + "</p>");
+      startTimer(pomodoroDuration);
+    } else { // Mode is either Session or Break, do same thing for either.
       $("#row_menu").slideDown(600);
       $("#row_pomodoros").animate({bottom: '50px'}, 600);
       showPlannedPomodoroStatus();
