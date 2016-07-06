@@ -190,3 +190,7 @@ body {
   background-image: linear-gradient(to bottom, #fc0a0a, #bf2222);
   text-decoration: none;
 }
+
+#startTimerButton:focus {
+  outline : none; /* Removing outline of timer button. */
+}
