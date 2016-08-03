@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/pomodoro.css">
     <link href="https://fonts.googleapis.com/css?family=Merienda|Abel" rel="stylesheet">
-
-
-    <title>Pomadoro Clock</title>
+    <title>Pomodoro Clock</title>
   </head>
   <body>
-
     <div class="modal fade" id="myModalAbout" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -40,7 +37,7 @@
         <h1>Pomodoro Clock</h1>
       </div>
       <div class="row" id="row_clock">
-          <div id="time_left"></div>
+        <div id="time_left"></div>
       </div>
       <div class="row" id="row_mode">
         <span id="mode"></span>
@@ -48,9 +45,7 @@
       <div class="row" id="row_button">
         <button type="button" class="btn btn-sm btn-default" id="startTimerButton">Start</button>
       </div>
-      <div class="row" id="row_pomodoros">
-
-      </div>
+      <div class="row" id="row_pomodoros"></div>
       <div class="row" id="row_menu">
         <img id="incrementPomodoroLength" src="images/up-arrow.svg"/>
         <span id="pLength"></span>
@@ -62,7 +57,6 @@
         <span id="numPomodoros"></span>
         <img id="decrementPomodoros" src="images/down-arrow.svg"/>
         <span id="about"><a href="#" data-toggle="modal" data-target="#myModalAbout">About</a></span>
-
       </div>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
