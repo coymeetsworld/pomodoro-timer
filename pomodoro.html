@@ -31,34 +31,27 @@
       </div> <!-- <div class="modal-dialog"> -->
     </div>
 
-    <div class="container-fluid">
-      <div class="row" id="row_title">
-        <h1>Pomodoro Clock</h1>
-      </div>
-      <div class="row" id="row_clock">
-        <div id="time_left"></div>
-      </div>
-      <div class="row" id="row_mode">
-        <span id="mode"></span>
-      </div>
-      <div class="row" id="row_button">
-        <button type="button" class="btn btn-sm btn-default" id="startTimerButton">Start</button>
-      </div>
-      <div class="row" id="row_pomodoros"></div>
-      <div class="row" id="row_menu">
-        <img id="incrementPomodoroLength" src="images/up-arrow.svg"/>
-        <span id="pLength"></span>
-        <img id="decrementPomodoroLength" src="images/down-arrow.svg"/>
-        <img id="incrementBreakLength" src="images/up-arrow.svg"/>
-        <span id="bLength"></span>
-        <img id="decrementBreakLength" src="images/down-arrow.svg"/>
-        <img id="incrementPomodoros" src="images/up-arrow.svg"/>
-        <span id="numPomodoros"></span>
-        <img id="decrementPomodoros" src="images/down-arrow.svg"/>
-        <span id="about"><a href="#" data-toggle="modal" data-target="#myModalAbout">About</a></span>
-      </div>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-      <script type="text/javascript" src="pomodoro.js"></script>
+    <h1>Pomodoro Clock</h1>
+    <div id="time_left"></div>
+    <div id="modeDisplay">
+      <span id="mode"></span>
+    </div>
+    <button type="button" class="btn btn-sm btn-default" id="startTimerButton">Start</button>
+    <div id="row_pomodoros"></div>
+    <div id="row_menu">
+      <img id="incrementPomodoroLength" src="images/up-arrow.svg"/>
+      <span id="pLength"></span>
+      <img id="decrementPomodoroLength" src="images/down-arrow.svg"/>
+      <img id="incrementBreakLength" src="images/up-arrow.svg"/>
+      <span id="bLength"></span>
+      <img id="decrementBreakLength" src="images/down-arrow.svg"/>
+      <img id="incrementPomodoros" src="images/up-arrow.svg"/>
+      <span id="numPomodoros"></span>
+      <img id="decrementPomodoros" src="images/down-arrow.svg"/>
+      <span id="about"><a href="#" data-toggle="modal" data-target="#myModalAbout">About</a></span>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="pomodoro.js"></script>
   </body>
 </html>

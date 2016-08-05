@@ -6,14 +6,14 @@ body {
   color: white;
 }
 
-#row_title h1 {
+h1 {
   margin-left: 0.5em;
   font-family: "Merienda";
 }
 
 /* Clock */
-#row_clock {
-  margin-top: 7em;
+#time_left {
+  margin-top: 10%;
   padding: 0;
 }
 
@@ -22,27 +22,20 @@ body {
   font-size: 15em;
   margin: 0;
 }
-
-
-
 /* End clock */
-#row_mode {
+
+#modeDisplay {
   margin-top: 1em;
   margin-left: 0.5em;
   font-size: 2.4em;
   font-family: "Abel";
 }
-#mode p {
-  display: inline;
-}
 
-#row_button {
+button {
   margin-top: 0.5em;
   margin-left: 1em;
 }
 
-#row_button button {
-}
 
 #row_pomodoros {
   position: fixed;
