@@ -1,4 +1,7 @@
 
+html, body {
+  height: 100%;
+}
 
 body {
   background-color: cover;
@@ -6,42 +9,48 @@ body {
   color: white;
 }
 
-h1 {
+#main {
+  height: 100%;
+  display: --webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#title {
+  order: 1;
+}
+
+#title h1 {
   margin-left: 0.5em;
   font-family: "Merienda";
 }
 
 /* Clock */
 #time_left {
-  margin-top: 10%;
-  padding: 0;
+  order: 2;
 }
 
 #time_left p {
   text-align: center;
   font-size: 15em;
-  margin: 0;
 }
 /* End clock */
 
 #modeDisplay {
-  margin-top: 1em;
+  order: 3;
   margin-left: 0.5em;
   font-size: 2.4em;
   font-family: "Abel";
 }
 
-button {
-  margin-top: 0.5em;
+#modeDisplay button {
   margin-left: 1em;
 }
 
 
 #row_pomodoros {
-  position: fixed;
-  bottom: 50px;
-  padding-bottom: 10px;
-  width: 100%;
+  order: 4;
 }
 
 .pomodoro_completed {
@@ -55,10 +64,9 @@ button {
 
 /* Bottom bar */
 #row_menu {
+  order: 5;
   padding-left: 20px;
   color: green;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   background: rgba(0,0,0, 0.7);
 }

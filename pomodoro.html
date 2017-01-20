@@ -31,24 +31,33 @@
       </div> <!-- <div class="modal-dialog"> -->
     </div>
 
-    <h1>Pomodoro Clock</h1>
-    <div id="time_left"></div>
-    <div id="modeDisplay">
-      <span id="mode"></span>
-    </div>
-    <button type="button" class="btn btn-sm btn-default" id="startTimerButton">Start</button>
-    <div id="row_pomodoros"></div>
-    <div id="row_menu">
-      <img id="incrementPomodoroLength" src="images/up-arrow.svg"/>
-      <span id="pLength"></span>
-      <img id="decrementPomodoroLength" src="images/down-arrow.svg"/>
-      <img id="incrementBreakLength" src="images/up-arrow.svg"/>
-      <span id="bLength"></span>
-      <img id="decrementBreakLength" src="images/down-arrow.svg"/>
-      <img id="incrementPomodoros" src="images/up-arrow.svg"/>
-      <span id="numPomodoros"></span>
-      <img id="decrementPomodoros" src="images/down-arrow.svg"/>
-      <span id="about"><a href="#" data-toggle="modal" data-target="#myModalAbout">About</a></span>
+    <div id="main">
+      <div id="title">
+        <h1>Pomodoro Clock</h1>
+      </div>
+
+      <div id="time_left"></div>
+
+      <div id="modeDisplay">
+        <span id="mode"></span>
+        <button type="button" class="btn btn-sm btn-default" id="startTimerButton">Start</button>
+      </div>
+
+      <div id="row_pomodoros"></div>
+
+      <div id="row_menu">
+        <img id="incrementPomodoroLength" src="images/up-arrow.svg"/>
+        <span id="pLength"></span>
+        <img id="decrementPomodoroLength" src="images/down-arrow.svg"/>
+        <img id="incrementBreakLength" src="images/up-arrow.svg"/>
+        <span id="bLength"></span>
+        <img id="decrementBreakLength" src="images/down-arrow.svg"/>
+        <img id="incrementPomodoros" src="images/up-arrow.svg"/>
+        <span id="numPomodoros"></span>
+        <img id="decrementPomodoros" src="images/down-arrow.svg"/>
+        <span id="about"><a href="#" data-toggle="modal" data-target="#myModalAbout">About</a></span>
+      </div>
+
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
