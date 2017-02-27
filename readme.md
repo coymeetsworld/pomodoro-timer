@@ -8,17 +8,17 @@ This is a productivity application that implements [The Pomodoro Technique](http
 
 https://coymeetsworld.github.io/pomodoro-timer/
 
-TODOshow preview image, focus on clock and session name
+<img align="center" src="images/readme-imgs/front.png"/>
 
 ## Instructions
 
 A user can choose the length of pomodoros, the length of breaks, and the number of pomodoros to run in one sitting (Maximum set to 8). The default settings are set to 52 minutes for a pomodoro and 17 minutes for a break, which was a recommended setting found in this [Forbes article](http://www.forbes.com/sites/travisbradberry/2016/06/07/why-the-8-hour-workday-doesnt-work/)
 
-TODOshow image of control panel
+<img align="center" src="images/readme-imgs/control_panel.png"/>
 
 The application will give a popup notification in the browser and an audible cue to indicate when a pomodoro or break has completed to alert the user when it's time to switch modes.
 
-TODOshow image of popup
+<img align="center" src="images/readme-imgs/notification.png"/>
 
 ## About
 
