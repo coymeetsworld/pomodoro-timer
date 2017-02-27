@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(() => {
 
 	window.onbeforeunload = () => { 
 		return "Are you sure you want to leave? Pomodoro progress will be lost!";
@@ -18,18 +18,19 @@ $(document).ready(function() {
     return seconds;
   }
 
+
   /* Used to send notifications to the user for when a pomodoro or break finishes. This will help signal the user if they are not currently on the pomodoro page. */
   function notifyUser(state) {
-    console.log("Notified: " + state);
+    //console.log("Notified: " + state);
     let msg = "";
-    if (state == 'SESSION') {
+    if (state === 'SESSION') {
       msg = "Session " + numPomodorosCompleted + " completed!";
-    } else if (state == 'BREAK') {
+    } else if (state === 'BREAK') {
       msg = "Break is over, starting next pomodoro now.";
-    } else if (state == 'COMPLETED') {
+    } else if (state === 'COMPLETED') {
       msg = "Pomodoros completed!";
     }
-    console.log("Notification: " + Notification.permission);
+    //console.log("Notification: " + Notification.permission);
     if (!("Notification" in window)) {
       //The browser doesn't support desktop notification
       alert(msg);
@@ -46,7 +47,7 @@ $(document).ready(function() {
       });
     }
   }Notification.requestPermission().then(function(result) {
-    console.log(result);
+    //console.log(result);
   });function spawnNotification(theBody,theIcon,theTitle) {
     let options = {
       body: theBody,
@@ -55,12 +56,13 @@ $(document).ready(function() {
     let n = new Notification(theTitle,options);
   }
 
+
   /* Formats number of seconds to a time string (MM:SS). Used in display of timer. */
   function formatTimeLeft(timeLeftInSeconds) {
     let minutes = (timeLeftInSeconds / SECONDS_IN_MINUTE) | 0;
     let seconds = (timeLeftInSeconds % SECONDS_IN_MINUTE) | 0;
-    minutes = minutes < 10 ? "0" + minutes : minutes; /* Put a preceding 0 to single digit minutes */
-    seconds = seconds < 10 ? "0" + seconds : seconds; /* Put a preceding 0 to single digit seconds */
+    minutes = minutes < 10 ? "0" + minutes : minutes; 
+    seconds = seconds < 10 ? "0" + seconds : seconds;
     return minutes + ":" + seconds;
   }
 
@@ -85,9 +87,6 @@ $(document).ready(function() {
   let prev_mode = "Session"; /* Used to keep track of what mode it is prior to pausing (i.e. when resumed, checks if its on Break or Session). By default start as Session. */
   $("#mode").html("<p>Mode: " + mode + "</p>");
 
-
-  let session_bgcolor = "red";
-  let break_bgcolor = "#7FFF00";
 
   /* Shows user their current pomodoro status. Will show image of a pomodoro for each completed pomodoro, and a transparent pomodoro for current pomodoro status. */
   function showCurrentPomodoroStatus() {
@@ -115,16 +114,13 @@ $(document).ready(function() {
   function incrementPomodorosCompleted() {
     numPomodorosCompleted++;
     $("#row_pomodoros").prepend("<img class=\"pomodoro_completed\" src=\"images/tomato1.svg\"/>");
-    if (numPomodorosCompleted == numPomodoros) {
+    if (numPomodorosCompleted === numPomodoros) {
       $(".pomodoro_pending").last().remove();
     }
   }
 
   function sessionsCompleted() {
-
-    if (numPomodorosCompleted != numPomodoros) {
-      return false;
-    }
+    if (numPomodorosCompleted != numPomodoros) { return false; }
 
     clearInterval(myInterval);
     mode = "Completed";
@@ -156,7 +152,7 @@ $(document).ready(function() {
 
       if (timeLeft <= 0) {
         CHIME.play();
-        if (mode == "Session") {
+        if (mode === "Session") {
           incrementPomodorosCompleted();
 
           if (!sessionsCompleted()) {
@@ -171,23 +167,20 @@ $(document).ready(function() {
         }
         $("#mode").html("<p>Mode: " + mode + "</p>");
         start = Date.now();
-        /*console.log("THIS: " + start);
-        start.setSeconds(start.getSeconds() + 2);*/
       }
 
     };
 
     timer(); /* Run this once to avoid 1 second delay in setInterval */
 
-
     myInterval = setInterval(timer, 1000);
   }
 
 
   /* Depending on the current state, will either start or pause the session. If started, buttons to change the pomodoro/break lengths will be disabled. The opposite is true if the button is pressed to pause the session. */
-  $("#startTimerButton").click(function() {
+  $("#startTimerButton").click(() => {
 
-    if (mode == "Paused") {
+    if (mode === "Paused") {
       $("#row_menu").slideUp(600);
       $("#row_pomodoros").animate({bottom: '0px'}, 600);
       showCurrentPomodoroStatus();
@@ -196,8 +189,8 @@ $(document).ready(function() {
       let secondsLeft = convertTimeToSeconds($("#time_left").text());
 
       /* Edge case where pause button is hit when either break or pomodoro clock is at 0. */
-      if (secondsLeft == 0) {
-        if (mode == "Session") {
+      if (secondsLeft === 0) {
+        if (mode === "Session") {
           startTimer(convertTimeToSeconds($("#pLength").text()));
         } else {/* mode is "Break!" */
           startTimer(convertTimeToSeconds($("#bLength").text()));
@@ -211,7 +204,8 @@ $(document).ready(function() {
       $("#decrementPomodoroLength").prop("disabled",true);
       $("#incrementBreakLength").prop("disabled",true);
       $("#decrementBreakLength").prop("disabled",true);
-    } else if (mode == "Completed") {
+
+    } else if (mode === "Completed") {
       /* Starting over */
       clearCompletedPomodoros();
       $("#row_menu").slideUp(600);
@@ -220,6 +214,7 @@ $(document).ready(function() {
       mode = "Session";
       $("#mode").html("<p>Mode: " + mode + "</p>");
       startTimer(pomodoroDuration);
+
     } else { // Mode is either Session or Break, do same thing for either.
       $("#row_menu").slideDown(600);
       $("#row_pomodoros").animate({bottom: '50px'}, 600);
@@ -237,16 +232,16 @@ $(document).ready(function() {
   });
 
   /* When pressed, increment the pomodoro by a minute. */
-  $("#incrementPomodoroLength").click(function() {
+  $("#incrementPomodoroLength").click(() => {
     pomodoroDuration += SECONDS_IN_MINUTE;
     let pomodoroDurationFormatted = formatTimeLeft(pomodoroDuration);
 
     /* Resets state, starts back at Session, skips current break time. */
-    if (prev_mode == "Break!") {
+    if (prev_mode === "Break!") {
       prev_mode = "Session";
     }
 
-    if (mode == "Completed") {
+    if (mode === "Completed") {
       mode = "Paused";
       clearCompletedPomodoros();
       $("#mode").html("<p>Mode: " + mode + "</p>");
@@ -256,16 +251,17 @@ $(document).ready(function() {
     $("#time_left").html("<p>" + pomodoroDurationFormatted + "</p>");
   });
 
+
   /* When pressed, decrements the pomodoro by a minute. Cannot have a pomodoro less than 1 minute. (In practice, pomodoro shouldn't be 0) */
-  $("#decrementPomodoroLength").click(function() {
+  $("#decrementPomodoroLength").click(() => {
     if (pomodoroDuration > SECONDS_IN_MINUTE) {
 
       /* Resets state, starts back at Session, skips current break time. */
-      if (prev_mode == "Break!") {
+      if (prev_mode === "Break!") {
         prev_mode = "Session";
       }
 
-      if (mode == "Completed") {
+      if (mode === "Completed") {
         mode = "Paused";
         clearCompletedPomodoros();
         $("#mode").html("<p>Mode: " + mode + "</p>");
@@ -278,15 +274,16 @@ $(document).ready(function() {
     }
   });
 
+
   /* When pressed, increments the break by a minute. */
-  $("#incrementBreakLength").click(function() {
+  $("#incrementBreakLength").click(() => {
 
     /* Resets state, starts back at Session, skips current break time. */
-    if (prev_mode == "Break!") {
+    if (prev_mode === "Break!") {
       prev_mode = "Session";
     }
 
-    if (mode == "Completed") {
+    if (mode === "Completed") {
       mode = "Paused";
       clearCompletedPomodoros();
       $("#mode").html("<p>Mode: " + mode + "</p>");
@@ -298,15 +295,15 @@ $(document).ready(function() {
   });
 
   /* When pressed, decrements the break by a minute. Cannot have a break less than 1 minute (defeats the purpose of a Pomodoro to have no break). */
-  $("#decrementBreakLength").click(function() {
+  $("#decrementBreakLength").click(() => {
     if (breakDuration > SECONDS_IN_MINUTE) {
 
       /* Resets state, starts back at Session, skips current break time. */
-      if (prev_mode == "Break!") {
+      if (prev_mode === "Break!") {
         prev_mode = "Session";
       }
 
-      if (mode == "Completed") {
+      if (mode === "Completed") {
         mode = "Paused";
         clearCompletedPomodoros();
         $("#mode").html("<p>Mode: " + mode + "</p>");
@@ -322,9 +319,9 @@ $(document).ready(function() {
 
 
   /* When pressed, increments the number of pomodoros by 1. */
-  $("#incrementPomodoros").click(function() {
+  $("#incrementPomodoros").click(() => {
 
-    if (mode == "Completed") {
+    if (mode === "Completed") {
       mode = "Paused";
       clearCompletedPomodoros();
       $("#mode").html("<p>Mode: " + mode + "</p>");
@@ -338,10 +335,11 @@ $(document).ready(function() {
     }
   });
 
-  /* When pressed, decrements the number of pomodoros by 1. Cannot have less than one pomodoro. */
-  $("#decrementPomodoros").click(function() {
 
-    if (mode == "Completed") {
+  /* When pressed, decrements the number of pomodoros by 1. Cannot have less than one pomodoro. */
+  $("#decrementPomodoros").click(() => {
+
+    if (mode === "Completed") {
       mode = "Paused";
       clearCompletedPomodoros();
       $("#mode").html("<p>Mode: " + mode + "</p>");
