@@ -5,23 +5,23 @@ $(document).ready(function() {
 	}
 
 
-  var SECONDS_IN_MINUTE = 60;
-  var DEFAULT_POMODORO_LENGTH = 52;
-  var DEFAULT_BREAK_LENGTH = 17;
-  var DEFAULT_NUM_POMODOROS = 4;
-  var chime = new Audio('media/ding.mp3');
+  const SECONDS_IN_MINUTE = 60;
+  const DEFAULT_POMODORO_LENGTH = 1;
+  const DEFAULT_BREAK_LENGTH = 1;
+  const DEFAULT_NUM_POMODOROS = 4;
+  const CHIME = new Audio('media/ding.mp3');
 
   /* Converts a time string (MM:SS) to number of seconds. Used for startTimer function. */
   function convertTimeToSeconds(time_string) {
-    var time_array = time_string.split(":");
-    var seconds = (SECONDS_IN_MINUTE * (+time_array[0]) + (+time_array[1]));
+    let time_array = time_string.split(":");
+    let seconds = (SECONDS_IN_MINUTE * (+time_array[0]) + (+time_array[1]));
     return seconds;
   }
 
   /* Used to send notifications to the user for when a pomodoro or break finishes. This will help signal the user if they are not currently on the pomodoro page. */
   function notifyUser(state) {
     console.log("Notified: " + state);
-    var msg = "";
+    let msg = "";
     if (state == 'SESSION') {
       msg = "Session " + numPomodorosCompleted + " completed!";
     } else if (state == 'BREAK') {
@@ -35,70 +35,70 @@ $(document).ready(function() {
       alert(msg);
     }
     else if (Notification.permission === "granted") { // Checks if notif permissions granted already
-      var notification = new Notification(msg);
+      let notification = new Notification(msg);
     }
     else if (Notification.permission !== 'denied' || Notification.permission === "default") { // Lets ask user for permission
       Notification.requestPermission(function (permission) {
         // If the user accepts, let's create a notification
         if (permission === "granted") {
-          var notification = new Notification(msg);
+          let notification = new Notification(msg);
         }
       });
     }
   }Notification.requestPermission().then(function(result) {
     console.log(result);
   });function spawnNotification(theBody,theIcon,theTitle) {
-    var options = {
+    let options = {
       body: theBody,
       icon: theIcon
     }
-    var n = new Notification(theTitle,options);
+    let n = new Notification(theTitle,options);
   }
 
   /* Formats number of seconds to a time string (MM:SS). Used in display of timer. */
   function formatTimeLeft(timeLeftInSeconds) {
-    var minutes = (timeLeftInSeconds / SECONDS_IN_MINUTE) | 0;
-    var seconds = (timeLeftInSeconds % SECONDS_IN_MINUTE) | 0;
+    let minutes = (timeLeftInSeconds / SECONDS_IN_MINUTE) | 0;
+    let seconds = (timeLeftInSeconds % SECONDS_IN_MINUTE) | 0;
     minutes = minutes < 10 ? "0" + minutes : minutes; /* Put a preceding 0 to single digit minutes */
     seconds = seconds < 10 ? "0" + seconds : seconds; /* Put a preceding 0 to single digit seconds */
     return minutes + ":" + seconds;
   }
 
 
-  var pomodoroDuration = DEFAULT_POMODORO_LENGTH*SECONDS_IN_MINUTE; /* Default value */
-  var pomodoroDurationFormatted = formatTimeLeft(pomodoroDuration);
+  let pomodoroDuration = DEFAULT_POMODORO_LENGTH*SECONDS_IN_MINUTE; /* Default value */
+  let pomodoroDurationFormatted = formatTimeLeft(pomodoroDuration);
   $("#time_left").html("<p>" + pomodoroDurationFormatted + "</p>");
   $("#pLength").html("<p>" + pomodoroDurationFormatted + "</p>");
 
-  var breakDuration = DEFAULT_BREAK_LENGTH*SECONDS_IN_MINUTE; /* Default value */
-  var breakDurationFormatted = formatTimeLeft(breakDuration);
+  let breakDuration = DEFAULT_BREAK_LENGTH*SECONDS_IN_MINUTE; /* Default value */
+  let breakDurationFormatted = formatTimeLeft(breakDuration);
   $("#bLength").html("<p>" + breakDurationFormatted + "</p>");
 
-  var numPomodoros = DEFAULT_NUM_POMODOROS;
-  var numPomodorosCompleted = 0;
+  let numPomodoros = DEFAULT_NUM_POMODOROS;
+  let numPomodorosCompleted = 0;
   $("#numPomodoros").html("<p>" + numPomodoros + "</p>");
-  for (var i = 0; i < DEFAULT_NUM_POMODOROS; i++) {
+  for (let i = 0; i < DEFAULT_NUM_POMODOROS; i++) {
     $("#row_pomodoros").append("<img class=\"pomodoro_pending\" src=\"images/tomato1.svg\"/>");
   }
 
-  var mode = "Paused";
-  var prev_mode = "Session"; /* Used to keep track of what mode it is prior to pausing (i.e. when resumed, checks if its on Break or Session). By default start as Session. */
+  let mode = "Paused";
+  let prev_mode = "Session"; /* Used to keep track of what mode it is prior to pausing (i.e. when resumed, checks if its on Break or Session). By default start as Session. */
   $("#mode").html("<p>Mode: " + mode + "</p>");
 
 
-  var session_bgcolor = "red";
-  var break_bgcolor = "#7FFF00";
+  let session_bgcolor = "red";
+  let break_bgcolor = "#7FFF00";
 
   /* Shows user their current pomodoro status. Will show image of a pomodoro for each completed pomodoro, and a transparent pomodoro for current pomodoro status. */
   function showCurrentPomodoroStatus() {
-    for (var i = numPomodorosCompleted; i < numPomodoros-1; i++) { // -1 so not to remove current pomodoro
+    for (let i = numPomodorosCompleted; i < numPomodoros-1; i++) { // -1 so not to remove current pomodoro
       $(".pomodoro_pending").last().remove();
     }
   }
 
   /* Shows user how many pomodoros they have completed and future pomodoros. */
   function showPlannedPomodoroStatus() {
-    for (var i = numPomodorosCompleted; i < numPomodoros-1; i++) { // -1 so to include current pomodoro
+    for (let i = numPomodorosCompleted; i < numPomodoros-1; i++) { // -1 so to include current pomodoro
       $("#row_pomodoros").append("<img class=\"pomodoro_pending\" src=\"images/tomato1.svg\"/>");
     }
   }
@@ -107,7 +107,7 @@ $(document).ready(function() {
     $(".pomodoro_completed").remove();
     numPomodorosCompleted = 0;
 
-    for (var i = 0; i < numPomodoros; i++) {
+    for (let i = 0; i < numPomodoros; i++) {
       $("#row_pomodoros").append("<img class=\"pomodoro_pending\" src=\"images/tomato1.svg\"/>"); //Add
     }
   }
@@ -137,25 +137,25 @@ $(document).ready(function() {
 
 
   /* Sets up a timer to run every second. */
-  var myInterval;
+  let myInterval;
 
   function startTimer(durationInSeconds) {
 
-    var start = Date.now();
-    var timeLeft, minutes, seconds;
+    let start = Date.now();
+    let timeLeft, minutes, seconds;
 
     /* Function used by startTime to run every second. Counts down the timer. */
     function timer() {
 
       /* | 0 Truncates the decimal */
       timeLeft = durationInSeconds - (((Date.now() - start) / 1000) | 0);
-      var formattedTimeLeft = formatTimeLeft(timeLeft);
+      let formattedTimeLeft = formatTimeLeft(timeLeft);
 
       $("#time_left").html("<p>" + formattedTimeLeft + "</p>");
 
 
       if (timeLeft <= 0) {
-        chime.play();
+        CHIME.play();
         if (mode == "Session") {
           incrementPomodorosCompleted();
 
@@ -193,7 +193,7 @@ $(document).ready(function() {
       showCurrentPomodoroStatus();
       mode = prev_mode;
       $("#mode").html("<p>Mode: " + mode + "</p>");
-      var secondsLeft = convertTimeToSeconds($("#time_left").text());
+      let secondsLeft = convertTimeToSeconds($("#time_left").text());
 
       /* Edge case where pause button is hit when either break or pomodoro clock is at 0. */
       if (secondsLeft == 0) {
@@ -239,7 +239,7 @@ $(document).ready(function() {
   /* When pressed, increment the pomodoro by a minute. */
   $("#incrementPomodoroLength").click(function() {
     pomodoroDuration += SECONDS_IN_MINUTE;
-    var pomodoroDurationFormatted = formatTimeLeft(pomodoroDuration);
+    let pomodoroDurationFormatted = formatTimeLeft(pomodoroDuration);
 
     /* Resets state, starts back at Session, skips current break time. */
     if (prev_mode == "Break!") {
@@ -272,7 +272,7 @@ $(document).ready(function() {
       }
 
       pomodoroDuration -= SECONDS_IN_MINUTE;
-      var pomodoroDurationFormatted = formatTimeLeft(pomodoroDuration);
+      let pomodoroDurationFormatted = formatTimeLeft(pomodoroDuration);
       $("#pLength").html("<p>" + pomodoroDurationFormatted + "</p>");
       $("#time_left").html("<p>" + pomodoroDurationFormatted + "</p>");
     }
@@ -293,7 +293,7 @@ $(document).ready(function() {
     }
 
     breakDuration += SECONDS_IN_MINUTE;
-    var breakDurationFormatted = formatTimeLeft(breakDuration);
+    let breakDurationFormatted = formatTimeLeft(breakDuration);
     $("#bLength").html("<p>" + breakDurationFormatted + "</p>");
   });
 
@@ -313,7 +313,7 @@ $(document).ready(function() {
       }
 
       breakDuration -= SECONDS_IN_MINUTE;
-      var breakDurationFormatted = formatTimeLeft(breakDuration);
+      let breakDurationFormatted = formatTimeLeft(breakDuration);
       $("#bLength").html("<p>" + breakDurationFormatted + "</p>");
     }
   });
