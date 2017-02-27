@@ -1,43 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/pomodoro.css">
-    <link href="https://fonts.googleapis.com/css?family=Merienda|Abel" rel="stylesheet">
-    <title>Pomodoro Clock</title>
-  </head>
-  <body>
-    <div id="main">
-      <div id="title">
-        <h1>Pomodoro Clock</h1>
-      </div>
-
-      <div id="time_left"></div>
-
-      <div id="modeDisplay">
-        <span id="mode"></span>
-        <button type="button" id="startTimerButton">Start</button>
-      </div>
-
-			<div id="pomomenu">
-      	<div id="row_pomodoros"></div>
-      	<div id="row_menu">
-        <img id="incrementPomodoroLength" src="images/up-arrow.svg"/>
-        <span id="pLength"></span>
-        <img id="decrementPomodoroLength" src="images/down-arrow.svg"/>
-        <img id="incrementBreakLength" src="images/up-arrow.svg"/>
-        <span id="bLength"></span>
-        <img id="decrementBreakLength" src="images/down-arrow.svg"/>
-        <img id="incrementPomodoros" src="images/up-arrow.svg"/>
-        <span id="numPomodoros"></span>
-        <img id="decrementPomodoros" src="images/down-arrow.svg"/>
-        <span id="about"><a href="https://github.com/coymeetsworld/pomodoro-timer">Check the source code out on GitHub!</a></span>
-      </div>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+		<link href="https://fonts.googleapis.com/css?family=Merienda|Abel" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/pomodoro.css">
+		<title>Pomodoro Clock</title>
+	</head>
+	<body>
+		<div id="main">
+			<div id="title">
+				<h1>Pomodoro Clock</h1>
 			</div>
-
-    </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script type="text/javascript" src="pomodoro.js"></script>
-  </body>
+			<div id="time_left"></div>
+			<div id="modeDisplay">
+				<span id="mode"></span>
+				<button type="button" id="startTimerButton">Start</button>
+			</div>
+			<div id="pomomenu">
+				<div id="row_pomodoros"></div>
+				<div id="row_menu">
+					<img id="incrementPomodoroLength" src="images/up-arrow.svg"/>
+					<span id="pLength"></span>
+					<img id="decrementPomodoroLength" src="images/down-arrow.svg"/>
+					<img id="incrementBreakLength" src="images/up-arrow.svg"/>
+					<span id="bLength"></span>
+					<img id="decrementBreakLength" src="images/down-arrow.svg"/>
+					<img id="incrementPomodoros" src="images/up-arrow.svg"/>
+					<span id="numPomodoros"></span>
+					<img id="decrementPomodoros" src="images/down-arrow.svg"/>
+					<span id="about"><a href="https://github.com/coymeetsworld/pomodoro-timer">Check the source code out on GitHub!</a></span>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script type="text/javascript" src="pomodoro.js"></script>
+	</body>
 </html>
