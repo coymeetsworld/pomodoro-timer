@@ -1,8 +1,8 @@
 $(document).ready(() => {
 
 	const SECONDS_IN_MINUTE = 60;
-	const DEFAULT_POMODORO_LENGTH = 1;
-	const DEFAULT_BREAK_LENGTH = 1;
+	const DEFAULT_POMODORO_LENGTH = 52;
+	const DEFAULT_BREAK_LENGTH = 17;
 	const DEFAULT_NUM_POMODOROS = 4;
 	const CHIME = new Audio('media/ding.mp3');
 
