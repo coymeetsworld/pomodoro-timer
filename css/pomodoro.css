@@ -70,9 +70,8 @@ button {
   margin-left: 1em;
 }
 
-
-#row_pomodoros {
-  order: 4;
+#pomomenu {
+	order: 4;
 }
 
 .pomodoro_completed {
@@ -90,7 +89,6 @@ img {
 
 /* Bottom bar */
 #row_menu {
-  order: 5;
   padding-left: 20px;
   color: green;
   width: 100%;
