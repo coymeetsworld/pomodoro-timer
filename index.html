@@ -3,34 +3,11 @@
   <head>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/pomodoro.css">
     <link href="https://fonts.googleapis.com/css?family=Merienda|Abel" rel="stylesheet">
     <title>Pomodoro Clock</title>
   </head>
   <body>
-    <div class="modal fade" id="myModalAbout" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">x</span>
-            </button>
-            <h1 style="text-align: center">About Pomodoro Clock</h1>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <p>The Pomodoro Clock was written by Coy Sanders to complete one of the last <a href="https://www.freecodecamp.com/challenges/build-a-pomodoro-clock" target="_blank">Advanced Front-End Development Projects</a> for FreeCodeCamp to earn the Front-End Development Certification.</p>
-              <p>You can set the number of pomodoros to have as well as the length of each pomodoro and its corresponding break. The default is set to 52 minutes for a pomodoro and 17 for a break, which was a recommended setting found in this <a href="http://www.forbes.com/sites/travisbradberry/2016/06/07/why-the-8-hour-workday-doesnt-work/" target="_blank">Forbes article</a>.
-              <p>Other credit:</p>
-              <p>Up and down arrows made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver" target="_blank">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon" target="_blank">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
-              <p>Sound effects found on <a href="http://www.orangefreesounds.com/" target="_blank">orangefreesounds</a>. License: The sound effect is permitted for non-commercial use under license Attribution-NonCommercial 4.0 International (CC BY-NC 4.0).
-            </div>
-          </div> <!-- <div class="modal-body"> -->
-        </div><!-- <div class="modal-content" -->
-      </div> <!-- <div class="modal-dialog"> -->
-    </div>
-
     <div id="main">
       <div id="title">
         <h1>Pomodoro Clock</h1>
@@ -40,7 +17,7 @@
 
       <div id="modeDisplay">
         <span id="mode"></span>
-        <button type="button" class="btn btn-sm btn-default" id="startTimerButton">Start</button>
+        <button type="button" id="startTimerButton">Start</button>
       </div>
 
       <div id="row_pomodoros"></div>
@@ -55,12 +32,11 @@
         <img id="incrementPomodoros" src="images/up-arrow.svg"/>
         <span id="numPomodoros"></span>
         <img id="decrementPomodoros" src="images/down-arrow.svg"/>
-        <span id="about"><a href="#" data-toggle="modal" data-target="#myModalAbout">About</a></span>
+        <span id="about"><a href="https://github.com/coymeetsworld/pomodoro-timer">Check the source code out on GitHub!</a></span>
       </div>
 
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script type="text/javascript" src="pomodoro.js"></script>
   </body>
 </html>

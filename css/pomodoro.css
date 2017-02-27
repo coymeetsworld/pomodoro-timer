@@ -1,12 +1,29 @@
+* {
+/* From bootstrap */
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
 
 html, body {
   height: 100%;
 }
 
 body {
-  background-color: cover;
   background-image: url("../images/grass-1197644_1920.jpg");
   color: white;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; /*bs*/
+	font-size: 14px; /*bs*/
+	line-height:1.4285713; /*bs*/
+
+
+}
+
+p {
+	margin: 0 0 10px; /*bs*/
+}
+
+button {
+	line-height: inherit; /*bs*/
 }
 
 #main {
@@ -24,6 +41,11 @@ body {
 #title h1 {
   margin-left: 0.5em;
   font-family: "Merienda";
+	margin-top: 20px; /*BS*/
+	margin-bottom: 10px; /*BS*/
+	font-weight: 500;
+	line-height: 1.1;
+	color: inherit;
 }
 
 /* Clock */
@@ -59,6 +81,10 @@ body {
 .pomodoro_pending {
   width: 80px;
   opacity: 0.5;
+}
+
+img {
+	vertical-align: middle;
 }
 
 
@@ -152,6 +178,11 @@ body {
   color: white;
   margin-top: 8px;
   margin-right: 15px;
+}
+
+#about a {
+	color: #337ab7; /*bs*/
+	text-decoration: none; /*bs*/
 }
 
 #about a:hover {
