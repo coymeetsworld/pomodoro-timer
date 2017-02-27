@@ -14,9 +14,9 @@ https://coymeetsworld.github.io/pomodoro-timer/
 
 ## Instructions
 
-A user can choose the length of pomodoros, the length of breaks, and the number of pomodoros to run in one sitting (Maximum set to 8). The default settings are set to 52 minutes for a pomodoro and 17 minutes for a break, which was a recommended setting found in this [Forbes article](http://www.forbes.com/sites/travisbradberry/2016/06/07/why-the-8-hour-workday-doesnt-work/)
+A user can choose the length of pomodoros, the length of breaks, and the number of pomodoros to run in one sitting (maximum set to 8). The default settings are set to 52 minutes for a pomodoro and 17 minutes for a break, which was a recommended setting found in this [Forbes article](http://www.forbes.com/sites/travisbradberry/2016/06/07/why-the-8-hour-workday-doesnt-work/).
 
-<div align="center">
+<div align="center" style="margin-bottom: 20px;">
 	<img src="images/readme-imgs/control_panel.png" alt="Preview image of the control panel."/>
 </div>
 
