@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+	window.onbeforeunload = () => { 
+		return "Are you sure you want to leave? Pomodoro progress will be lost!";
+	}
+
+
   var SECONDS_IN_MINUTE = 60;
   var DEFAULT_POMODORO_LENGTH = 52;
   var DEFAULT_BREAK_LENGTH = 17;
