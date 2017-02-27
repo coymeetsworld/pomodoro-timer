@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a productivity application that implements [The Pomodoro Technique](http://cirillocompany.de/pages/pomodoro-technique). It's used to break time devoted to deep work into chunks called *pomodoros* that are separated by *breaks* in time. 
+This is a productivity application that implements [The Pomodoro Technique](http://cirillocompany.de/pages/pomodoro-technique). The Pomodoro Technique is a time management system used to create blocks of time called *pomodoros* that are devoted to performing work. The pomodoros are spaced out between *breaks* in time used to step away from the work and rest. 
 
 ## Live Demo
 
