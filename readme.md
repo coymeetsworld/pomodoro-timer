@@ -16,7 +16,7 @@ https://coymeetsworld.github.io/pomodoro-timer/
 
 A user can choose the length of pomodoros, the length of breaks, and the number of pomodoros to run in one sitting (maximum set to 8). The default settings are set to 52 minutes for a pomodoro and 17 minutes for a break, which was a recommended setting found in this [Forbes article](http://www.forbes.com/sites/travisbradberry/2016/06/07/why-the-8-hour-workday-doesnt-work/).
 
-<div align="center" style="margin-bottom: 20px;">
+<div align="center">
 	<img src="images/readme-imgs/control_panel.png" alt="Preview image of the control panel."/>
 </div>
 
@@ -30,7 +30,7 @@ The application will give a popup notification in the browser and an audible cue
 
 The Pomodoro Clock was written by Coy Sanders as a requirement in the [Advanced Front-End Development Projects](https://www.freecodecamp.com/challenges/build-a-pomodoro-clock) for [FreeCodeCamp](http://www.freecodecamp.com) to earn the Front-End Development Certification.
 
-software is licensed under the [MIT License]
+software is licensed under the [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Copyright (c) 2017 
 
