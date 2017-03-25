@@ -1,225 +1,170 @@
 * {
-	/* From bootstrap */
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+  /* From bootstrap */
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body {
-	height: 100%;
+  height: 100%;
 }
 
 body {
-	background-image: url("../images/grass-1197644_1920.jpg");
-	color: white;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; /*bs*/
-	font-size: 14px; /*bs*/
-	line-height:1.4285713; /*bs*/
+  background-image: url("../images/grass-1197644_1920.jpg");
+  color: white;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 14px; /*bs*/
+  line-height:1.4285713; /*bs*/
 }
 
 p {
-	margin: 0 0 10px; /*bs*/
+  margin: 0 0 10px; /*bs*/
 }
 
 button {
-	line-height: inherit; /*bs*/
+  line-height: inherit; /*bs*/
 }
 
 #main {
-	height: 100%;
-	display: --webkit-flex;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+  display: --webkit-flex;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
 }
 
 #title {
-	order: 1;
+  order: 1;
 }
 
 #title h1 {
-	margin-left: 0.5em;
-	font-family: "Merienda";
-	margin-top: 20px; /*BS*/
-	margin-bottom: 10px; /*BS*/
-	font-weight: 500;
-	line-height: 1.1;
-	color: inherit;
+  color: inherit;
+  font-family: "Merienda";
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0.8em 0 0.5em 0.5em;
 }
 
 /* Clock */
-#time_left {
-	order: 2;
+#time-left {
+  order: 2;
 }
 
-#time_left p {
-	text-align: center;
-	font-size: 15em;
+#time-left p {
+  font-size: 15em;
+  text-align: center;
 }
 /* End clock */
 
-#modeDisplay {
-	order: 3;
-	margin-left: 0.5em;
-	font-size: 2.4em;
-	font-family: "Abel";
+#mode-display {
+  font-size: 2.4em;
+  font-family: "Abel";
+  margin-left: 0.5em;
+  order: 3;
 }
 
-#modeDisplay button {
-	margin-left: 1em;
+#mode-display button {
+  margin-left: 1em;
 }
 
 #pomomenu {
-	order: 4;
+  order: 4;
 }
 
-.pomodoro_completed {
-	width: 80px;
+.pomodoro-completed {
+  width: 80px;
 }
-.pomodoro_pending {
-	width: 80px;
-	opacity: 0.5;
+.pomodoro-pending {
+  opacity: 0.5;
+  width: 80px;
 }
 
 img {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 /* Bottom bar */
-#row_menu {
-	padding-left: 20px;
-	color: green;
-	width: 100%;
-	background: rgba(0,0,0, 0.7);
+#row-menu {
+  background: rgba(0,0,0, 0.7);
+  color: green;
+  padding-left: 20px;
+  width: 100%;
 }
 
-#pLength p {
-	display: inline;
-	font-size: 170%;
-	color: white;
-	padding-left: 10px;
-	padding-right: 10px;
+#pomodoro-length p,
+#break-length p,
+#num-pomodoros p {
+  color: white;
+  display: inline;
+  font-size: 170%;
+  padding: 0 10px 0 10px;
 }
 
-#bLength p {
-	display: inline;
-	font-size: 170%;
-	color: white;
-	padding-left: 10px;
-	padding-right: 10px;
+#dec-pomodoro-length,
+#dec-break-length {
+  margin-right: 25px;
+  padding-bottom: 5px;
+  width: 3%;
 }
 
-#numPomodoros p {
-	display: inline;
-	font-size: 170%;
-	color: white;
-	padding-left: 10px;
-	padding-right: 10px;
-}
-#incrementPomodoroLength {
-	width: 3%;
-	padding-bottom: 5px;
-}
-#incrementPomodoroLength:hover {
-	cursor: pointer;
+#inc-break-length,
+#inc-pomodoro-length,
+#inc-pomodoros,
+#dec-pomodoros {
+  padding-bottom: 5px;
+  width: 3%;
 }
 
-#decrementPomodoroLength {
-	width: 3%;
-	margin-right: 25px;
-	padding-bottom: 5px;
-}
-
-#decrementPomodoroLength:hover {
-	cursor: pointer;
-}
-
-#incrementBreakLength {
-	width: 3%;
-	padding-bottom: 5px;
-}
-#incrementBreakLength:hover {
-	cursor: pointer;
-}
-
-#decrementBreakLength {
-	width: 3%;
-	margin-right: 25px;
-	padding-bottom: 5px;
-}
-
-#decrementBreakLength:hover {
-	cursor: pointer;
-}
-
-#incrementPomodoros {
-	width: 3%;
-	padding-bottom: 5px;
-}
-#incrementPomodoros:hover {
-	cursor: pointer;
-}
-#decrementPomodoros {
-	width: 3%;
-	padding-bottom: 5px;
-}
-#decrementPomodoros:hover {
-	cursor: pointer;
-}
-
-#myModalAbout {
-	color: black;
+#inc-pomodoro-length:hover,
+#dec-pomodoro-length:hover,
+#inc-break-length:hover,
+#dec-break-length:hover,
+#inc-pomodoros:hover,
+#dec-pomodoros:hover {
+  cursor: pointer;
 }
 
 #about {
-	float: right;
-	color: white;
-	margin-top: 8px;
-	margin-right: 15px;
+  color: white;
+  float: right;
+  margin: 8px 15px 0 0;
 }
 
 #about a {
-	color: #337ab7; /*bs*/
-	text-decoration: none; /*bs*/
+  color: #337ab7; /*bs*/
+  text-decoration: none; /*bs*/
 }
 
 #about a:hover {
-	text-decoration: none;
-	color: #fff;
+  color: #fff;
 }
 
-
-.modal-body .row {
-	margin: auto;
+#start-timer-btn {
+  background: #e02121;
+  background-image: linear-gradient(to bottom, #e02121, #8f0303);
+  background-image: -moz-linear-gradient(top, #e02121, #8f0303);
+  background-image: -ms-linear-gradient(top, #e02121, #8f0303);
+  background-image: -o-linear-gradient(top, #e02121, #8f0303);
+  background-image: -webkit-linear-gradient(top, #e02121, #8f0303);
+  border: 0;
+  border-radius: 28px;
+  -moz-border-radius: 28;
+  -webkit-border-radius: 28;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 2px 25px 2px 25px;
+  text-decoration: none;
 }
 
-#startTimerButton {
-	background: #e02121;
-	background-image: -webkit-linear-gradient(top, #e02121, #8f0303);
-	background-image: -moz-linear-gradient(top, #e02121, #8f0303);
-	background-image: -ms-linear-gradient(top, #e02121, #8f0303);
-	background-image: -o-linear-gradient(top, #e02121, #8f0303);
-	background-image: linear-gradient(to bottom, #e02121, #8f0303);
-	-webkit-border-radius: 28;
-	-moz-border-radius: 28;
-	border-radius: 28px;
-	font-family: Arial;
-	color: #ffffff;
-	font-size: 20px;
-	padding: 2px 25px 2px 25px;
-	text-decoration: none;
-	border: 0;
+#start-timer-btn:hover {
+  background: #fc0a0a;
+  background-image: linear-gradient(to bottom, #fc0a0a, #bf2222);
+  background-image: -moz-linear-gradient(top, #fc0a0a, #bf2222);
+  background-image: -ms-linear-gradient(top, #fc0a0a, #bf2222);
+  background-image: -o-linear-gradient(top, #fc0a0a, #bf2222);
+  background-image: -webkit-linear-gradient(top, #fc0a0a, #bf2222);
 }
 
-#startTimerButton:hover {
-	background: #fc0a0a;
-	background-image: -webkit-linear-gradient(top, #fc0a0a, #bf2222);
-	background-image: -moz-linear-gradient(top, #fc0a0a, #bf2222);
-	background-image: -ms-linear-gradient(top, #fc0a0a, #bf2222);
-	background-image: -o-linear-gradient(top, #fc0a0a, #bf2222);
-	background-image: linear-gradient(to bottom, #fc0a0a, #bf2222);
-	text-decoration: none;
-}
-
-#startTimerButton:focus {
-	outline : none; /* Removing outline of timer button. */
+#start-timer-btn:focus {
+  outline : none; /* Removing outline of timer button. */
 }
