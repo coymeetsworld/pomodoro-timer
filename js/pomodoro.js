@@ -20,7 +20,7 @@ $(document).ready(() => {
     let msg = "";
     if (state === 'SESSION') { msg = "Session " + numPomodorosCompleted + " completed!"; }
     else if (state === 'BREAK') { msg = "Break is over, starting next pomodoro now."; }
-    else if (state === 'COMPLETED') { msg = "Pomodoros completed!"; }
+    else if (state === 'COMPLETED') { msg = numPomodorosCompleted + " pomodoros completed!"; }
 
     if (!("Notification" in window)) {
       //The browser doesn't support desktop notification
