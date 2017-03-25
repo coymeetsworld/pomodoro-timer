@@ -5,7 +5,8 @@ $(document).ready(() => {
   const DEFAULT_BREAK_LENGTH = 17;
   const DEFAULT_NUM_POMODOROS = 4;
   const CHIME = new Audio('media/ding.mp3');
-  const TOMATO_IMG = "<img class=\"pomodoro-pending\" src=\"images/tomato1.svg\" alt=\"Pomodoro\"/>";
+  const PENDING_TOMATO_IMG = "<img class=\"pomodoro-pending\" src=\"images/tomato1.svg\" alt=\"Pomodoro\"/>";
+  const COMPLETED_TOMATO_IMG = "<img class=\"pomodoro-completed\" src=\"images/tomato1.svg\" alt=\"Pomodoro\"/>";
 
   /* Converts a time string (MM:SS) to number of seconds. Used for startTimer function. */
   function convertTimeToSeconds(time_string) {
@@ -69,7 +70,7 @@ $(document).ready(() => {
   let numPomodorosCompleted = 0;
   $("#num-pomodoros").html("<p>" + numPomodoros + "</p>");
   for (let i = 0; i < DEFAULT_NUM_POMODOROS; i++) {
-    $("#row-pomodoros").append(TOMATO_IMG);
+    $("#row-pomodoros").append(PENDING_TOMATO_IMG);
   }
 
   let mode = "Paused";
@@ -87,7 +88,7 @@ $(document).ready(() => {
   /* Shows user how many pomodoros they have completed and future pomodoros. */
   function showPlannedPomodoroStatus() {
     for (let i = numPomodorosCompleted; i < numPomodoros-1; i++) { // -1 so to include current pomodoro
-      $("#row-pomodoros").append(TOMATO_IMG);
+      $("#row-pomodoros").append(PENDING_TOMATO_IMG);
     }
   }
 
@@ -96,13 +97,13 @@ $(document).ready(() => {
     numPomodorosCompleted = 0;
 
     for (let i = 0; i < numPomodoros; i++) {
-      $("#row-pomodoros").append(TOMATO_IMG); //Add
+      $("#row-pomodoros").append(PENDING_TOMATO_IMG); //Add
     }
   }
 
   function incrementPomodorosCompleted() {
     numPomodorosCompleted++;
-    $("#row-pomodoros").prepend(TOMATO_IMG);
+    $("#row-pomodoros").prepend(COMPLETED_TOMATO_IMG);
     if (numPomodorosCompleted === numPomodoros) {
       $(".pomodoro-pending").last().remove();
     }
@@ -303,7 +304,7 @@ $(document).ready(() => {
 
     if (numPomodoros < 8) {
       numPomodoros++;
-      $("#row-pomodoros").append(TOMATO_IMG);
+      $("#row-pomodoros").append(PENDING_TOMATO_IMG);
       $("#num-pomodoros").html("<p>" + numPomodoros + "</p>");
     }
   });
