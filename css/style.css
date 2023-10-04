@@ -6,10 +6,14 @@
 
 html, body {
   height: 100%;
+  background: url("../images/grass-1197644_1920.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body {
-  background-image: url("../images/grass-1197644_1920.jpg");
   color: white;
   font-family: Helvetica,Arial,sans-serif;
   font-size: 14px; /*bs*/
@@ -40,12 +44,14 @@ button {
   color: inherit;
   font-family: "Merienda";
   font-weight: 500;
+  font-size: 5em;
   line-height: 1.1;
-  margin: 0.8em 0 0.5em 0.5em;
+  margin: 0 0 0.5em 0.5em;
 }
 
 /* Clock */
 #time-left {
+  margin-top: 5em;
   order: 2;
 }
 
@@ -55,14 +61,19 @@ button {
 }
 /* End clock */
 
-#mode-display {
-  font-size: 2.4em;
+#row-pomodoros {
+  font-size: 1.4em;
   font-family: "Abel";
   margin-left: 0.5em;
+  margin-top: 15em;
   order: 3;
 }
 
-#mode-display button {
+#row-pomodoros #mode {
+  float: left;
+}
+
+#row-pomodoros button {
   margin-left: 1em;
 }
 
